@@ -1,13 +1,15 @@
-import React from 'react';
-import NoteItem from './NoteItem';
+import React from "react";
+import NoteItem from "./NoteItem";
 
-const NoteList = (props) => {
+const NoteList = ({ notes, selectNote, deleteNote}) => {
   return (
     <ul>
-      {/* Render list of notes here... */}
-      <NoteItem />
+      {notes.map(note => (
+        <NoteItem key={note.id} note={note} selectNote={selectNote}
+        deleteNote={deleteNote} />
+      ))}
     </ul>
   );
-}
+};
 
 export default NoteList;
